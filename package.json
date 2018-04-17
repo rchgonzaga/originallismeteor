@@ -1,0 +1,33 @@
+{
+  "name": "originallismeteor",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.42",
+    "axios": "^0.18.0",
+    "meteor-node-stubs": "^0.3.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "semantic-ui-css": "^2.3.1",
+    "semantic-ui-react": "^0.79.1"
+  },
+  "version": "1.0.0",
+  "description": "Simple school CRM",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rchgonzaga/originallismeteor.git"
+  },
+  "author": "Rafael Gonzaga",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rchgonzaga/originallismeteor/issues"
+  },
+  "homepage": "https://github.com/rchgonzaga/originallismeteor#readme"
+}
