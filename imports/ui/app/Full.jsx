@@ -23,6 +23,7 @@ import GuestRoute from "../components/Routes/GuestRoute";
 import UserRoute from "../components/Routes/UserRoute";
 
 import Dashboard from "../views/Dashboard/Dashboard";
+import TopMenu from "../components/Layout/TopMenu/TopMenu";
 
 const Login = () => <h2>Login</h2>;
 
@@ -66,44 +67,7 @@ class Full extends Component {
                 </Menu.Item>
               </Sidebar>
               <Sidebar.Pusher fluid as={Container}>
-                <Menu
-                  fluid
-                  style={{
-                    marginBottom: "0px",
-                    borderRadius: "0px",
-                    backgroundColor: "#f5f5f5"
-                  }}
-                >
-                  <Container fluid>
-                    <Menu.Item as="a" header onClick={this.toggleVisibility}>
-                      <Icon name="sidebar" />
-                    </Menu.Item>
-                    <Menu.Item>
-                      <Link to="/dashboard">Dashboard</Link>
-                    </Menu.Item>
-                    <Menu.Item>
-                      <Link to="/login">Login</Link>
-                    </Menu.Item>
-
-                    <Dropdown item simple text="Dropdown" position="right">
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Divider />
-                        <Dropdown.Header>Header Item</Dropdown.Header>
-                        <Dropdown.Item>
-                          <i className="dropdown icon" />
-                          <span className="text">Submenu</span>
-                          <Dropdown.Menu>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                            <Dropdown.Item>List Item</Dropdown.Item>
-                          </Dropdown.Menu>
-                        </Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown>
-                  </Container>
-                </Menu>
+                <TopMenu toggleVisibility={this.toggleVisibility} />
                 <div style={{ padding: "8px" }}>
                   <Switch>
                     <GuestRoute
