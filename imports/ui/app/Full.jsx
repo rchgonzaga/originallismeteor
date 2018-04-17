@@ -12,7 +12,8 @@ import {
   Container,
   List,
   Grid,
-  Dropdown
+  Dropdown,
+  Form
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -21,17 +22,58 @@ import * as actions from "./redux/actions";
 import GuestRoute from "../components/Routes/GuestRoute";
 import UserRoute from "../components/Routes/UserRoute";
 
-const Dashboard = () => <h2>Dashboard</h2>;
+class Dashboard extends Component {
+  state = { name: "", email: "", submittedName: "", submittedEmail: "" };
+
+  handleChange = (e, { name, value }) => this.setState({ [name]: value });
+
+  handleSubmit = () => {
+    const { name, email } = this.state;
+
+    this.setState({ submittedName: name, submittedEmail: email });
+  };
+
+  render() {
+    const { name, email, submittedName, submittedEmail } = this.state;
+
+    return (
+      <div>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group>
+            <Form.Input
+              placeholder="Name"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+            <Form.Input
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={this.handleChange}
+            />
+            <Form.Button content="Submit" />
+          </Form.Group>
+        </Form>
+        <strong>onChange:</strong>
+        <pre>{JSON.stringify({ name, email }, null, 2)}</pre>
+        <strong>onSubmit:</strong>
+        <pre>{JSON.stringify({ submittedName, submittedEmail }, null, 2)}</pre>
+      </div>
+    );
+  }
+}
 
 const Login = () => <h2>Login</h2>;
 
 class Full extends Component {
-  state = { visible: false };
   constructor(props) {
     super(props);
   }
 
-  toggleVisibility = () => this.setState({ visible: !this.state.visible });
+  toggleVisibility = () => {
+    this.props.actions.openMenu(!this.props.appGlobalState.appMenuOpened);
+  };
 
   componentDidMount() {
     this.props.actions.appLoading();
@@ -43,76 +85,73 @@ class Full extends Component {
       <div style={{ width: "100%", height: "100%" }}>
         {appReady === true ? (
           <div style={{ width: "100%", height: "100%" }}>
-            <Menu
-              inverted
-              fluid
-              style={{ marginBottom: "0px", borderRadius: "0px" }}
-            >
-              <Container fluid>
-                <Menu.Item as="a" header>
-                  <Image
-                    size="mini"
-                    src="/logo.png"
-                    style={{ marginRight: "1.5em" }}
-                  />
-                  Project Name
-                </Menu.Item>
-                <Menu.Item as="a">Home</Menu.Item>
-
-                <Dropdown item simple text="Dropdown">
-                  <Dropdown.Menu>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                    <Dropdown.Divider />
-                    <Dropdown.Header>Header Item</Dropdown.Header>
-                    <Dropdown.Item>
-                      <i className="dropdown icon" />
-                      <span className="text">Submenu</span>
-                      <Dropdown.Menu>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                        <Dropdown.Item>List Item</Dropdown.Item>
-                      </Dropdown.Menu>
-                    </Dropdown.Item>
-                    <Dropdown.Item>List Item</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Container>
-            </Menu>
             <Sidebar.Pushable>
               <Sidebar
                 as={Menu}
                 vertical
                 inverted
-                visible={this.state.visible}
+                visible={this.props.appGlobalState.appMenuOpened}
+                styl={{ backgroundColor: "#031c40" }}
                 animation={"push"}
               >
                 <Menu.Item name="Departments">
                   Departments
-                  <Icon name={"home"} />
+                  <Icon name="home" />
                 </Menu.Item>
               </Sidebar>
-              <Sidebar.Pusher fluid as={Container}>
-                <Button onClick={this.toggleVisibility}>
-                  Toggle Visibility
-                </Button>
+              <Sidebar.Pusher fluid as={Container} className="noMarginsAtAll">
+                <Menu
+                  fluid
+                  style={{
+                    marginBottom: "0px",
+                    borderRadius: "0px",
+                    backgroundColor: "#a5a5a5"
+                  }}
+                >
+                  <Container fluid>
+                    <Menu.Item as="a" header onClick={this.toggleVisibility}>
+                      <Icon name="sidebar" />
+                    </Menu.Item>
+                    <Menu.Item as="a">Home</Menu.Item>
 
-                <Switch>
-                  <GuestRoute
-                    exact
-                    path="/dashboard"
-                    name="Dashboard"
-                    component={Dashboard}
-                  />
+                    <Dropdown item simple text="Dropdown" position="right">
+                      <Dropdown.Menu>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Divider />
+                        <Dropdown.Header>Header Item</Dropdown.Header>
+                        <Dropdown.Item>
+                          <i className="dropdown icon" />
+                          <span className="text">Submenu</span>
+                          <Dropdown.Menu>
+                            <Dropdown.Item>List Item</Dropdown.Item>
+                            <Dropdown.Item>List Item</Dropdown.Item>
+                          </Dropdown.Menu>
+                        </Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
+                  </Container>
+                </Menu>
+                <div style={{ padding: "8px" }}>
+                  <Switch>
+                    <GuestRoute
+                      exact
+                      path="/dashboard"
+                      name="Dashboard"
+                      component={Dashboard}
+                    />
 
-                  <GuestRoute
-                    exact
-                    path="/login"
-                    name="Login"
-                    component={Login}
-                  />
+                    <GuestRoute
+                      exact
+                      path="/login"
+                      name="Login"
+                      component={Login}
+                    />
 
-                  <Redirect exact from="/" to="/dashboard" />
-                </Switch>
+                    <Redirect exact from="/" to="/dashboard" />
+                  </Switch>
+                </div>
               </Sidebar.Pusher>
             </Sidebar.Pushable>
           </div>

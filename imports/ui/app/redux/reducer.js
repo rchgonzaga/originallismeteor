@@ -1,7 +1,8 @@
 import initialState from "./initialState";
 import { reducer as startApplication } from "./actions/startApplication";
+import { reducer as openMenu } from "./actions/openMenu";
 
-const reducers = [startApplication];
+const reducers = [startApplication, openMenu];
 
 export default function reducer(state = initialState, action) {
   let newState;

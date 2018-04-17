@@ -6,6 +6,7 @@ import { Meteor } from "meteor/meteor";
 import { render } from "react-dom";
 import "semantic-ui-css/semantic.min.css";
 import "bulma/css/bulma.css";
+import "./main.scss";
 
 import App from "./App.jsx";
 import Layout from "../imports/ui/app/Layout";
