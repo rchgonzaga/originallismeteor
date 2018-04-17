@@ -1,16 +1,11 @@
 import { combineReducers } from "redux";
 import { routerReducer } from "react-router-redux";
 
-// import studentReducer from "./views/Student/redux/reducer";
-// import schoolsReducer from "./views/Schools/redux/reducer";
-// import phoneOperators from "./views/PhoneOperators/redux/reducer";
-// import clientsReducer from "./views/Clients/redux/reducer";
-// import citiesReducer from "./views/Cities/redux/reducer";
-// import coursesReducer from "./views/Courses/redux/reducer";
+import appGlobalState from "./redux/reducer";
 
 const reducerMap = {
-  router: routerReducer
-  // student: studentReducer,
+  router: routerReducer,
+  appGlobalState: appGlobalState
   // schools: schoolsReducer,
   // phoneOperators: phoneOperators,
   // clients: clientsReducer,
