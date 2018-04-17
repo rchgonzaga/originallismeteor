@@ -36,5 +36,5 @@ Template.hello.events({
 });
 
 Meteor.startup(() => {
-  render(<App />, document.getElementById("render-target"));
+  render(<Layout />, document.getElementById("render-target"));
 });

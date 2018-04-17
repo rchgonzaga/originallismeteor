@@ -3,7 +3,7 @@ const initialState = {
   isLogged: false,
   lastLogin: {},
   appReady: false,
-  appIsLoading: false,
+  appIsLoading: true,
   appLoadingError: null
 };
 

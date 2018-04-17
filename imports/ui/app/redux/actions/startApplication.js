@@ -31,6 +31,7 @@ export function reducer(state, action) {
       return {
         ...state,
         appIsLoading: true,
+        appReady: false,
         appLoadingError: null
       };
 
@@ -38,6 +39,7 @@ export function reducer(state, action) {
       return {
         ...state,
         appIsLoading: false,
+        appReady: true,
         appLoadingError: null
       };
 
@@ -45,12 +47,15 @@ export function reducer(state, action) {
       return {
         ...state,
         appIsLoading: false,
+        appReady: false,
         appLoadingError: action.data.error
       };
 
     case APP_LOAD_DISMISS_ERROR:
       return {
         ...state,
+        appIsLoading: true,
+        appReady: false,
         appLoadingError: null
       };
 
