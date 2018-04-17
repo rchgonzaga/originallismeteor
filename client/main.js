@@ -1,15 +1,15 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import { Template } from "meteor/templating";
+import { ReactiveVar } from "meteor/reactive-var";
 
-import React from 'react';
-import { Meteor } from 'meteor/meteor';
-import { render } from 'react-dom';
+import React from "react";
+import { Meteor } from "meteor/meteor";
+import { render } from "react-dom";
+import "semantic-ui-css/semantic.min.css";
 
-import App from './App.jsx';
+import App from "./App.jsx";
+import Layout from "../imports/ui/app/Layout";
 
-import 'semantic-ui-css/semantic.min.css';
-
-import './main.html';
+import "./main.html";
 
 Template.hello.onCreated(function helloOnCreated() {
   // counter starts at 0
@@ -19,18 +19,16 @@ Template.hello.onCreated(function helloOnCreated() {
 Template.hello.helpers({
   counter() {
     return Template.instance().counter.get();
-  },
+  }
 });
 
 Template.hello.events({
-  'click button'(event, instance) {
+  "click button"(event, instance) {
     // increment the counter when button is clicked
     instance.counter.set(instance.counter.get() + 1);
-  },
+  }
 });
 
- 
- 
 Meteor.startup(() => {
-  render(<App />, document.getElementById('render-target'));
+  render(<App />, document.getElementById("render-target"));
 });

@@ -9,7 +9,7 @@ import { routerReducer } from "react-router-redux";
 // import coursesReducer from "./views/Courses/redux/reducer";
 
 const reducerMap = {
-  // router: routerReducer,
+  router: routerReducer
   // student: studentReducer,
   // schools: schoolsReducer,
   // phoneOperators: phoneOperators,
