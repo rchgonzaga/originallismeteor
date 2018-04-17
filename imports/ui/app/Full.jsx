@@ -51,7 +51,7 @@ class Full extends Component {
                 vertical
                 inverted
                 visible={this.props.appGlobalState.appMenuOpened}
-                styl={{ backgroundColor: "#031c40" }}
+                style={{ backgroundColor: "#4b8ecb" }}
                 animation={"push"}
               >
                 <Menu.Item name="Departments">
@@ -59,20 +59,25 @@ class Full extends Component {
                   <Icon name="home" />
                 </Menu.Item>
               </Sidebar>
-              <Sidebar.Pusher fluid as={Container} className="noMarginsAtAll">
+              <Sidebar.Pusher fluid as={Container}>
                 <Menu
                   fluid
                   style={{
                     marginBottom: "0px",
                     borderRadius: "0px",
-                    backgroundColor: "#a5a5a5"
+                    backgroundColor: "#f5f5f5"
                   }}
                 >
                   <Container fluid>
                     <Menu.Item as="a" header onClick={this.toggleVisibility}>
                       <Icon name="sidebar" />
                     </Menu.Item>
-                    <Menu.Item as="a">Home</Menu.Item>
+                    <Menu.Item>
+                      <Link to="/dashboard">Dashboard</Link>
+                    </Menu.Item>
+                    <Menu.Item>
+                      <Link to="/login">Login</Link>
+                    </Menu.Item>
 
                     <Dropdown item simple text="Dropdown" position="right">
                       <Dropdown.Menu>
