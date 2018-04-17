@@ -9,6 +9,12 @@ import "semantic-ui-css/semantic.min.css";
 import App from "./App.jsx";
 import Layout from "../imports/ui/app/Layout";
 
+import documentPromise from "./documentPromise";
+
+document.ready.then(() => {
+  console.log("READY!");
+});
+
 import "./main.html";
 
 Template.hello.onCreated(function helloOnCreated() {
