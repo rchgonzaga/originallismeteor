@@ -13,7 +13,8 @@ import {
   List,
   Grid,
   Dropdown,
-  Form
+  Form,
+  Loader
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -24,6 +25,7 @@ import UserRoute from "../components/Routes/UserRoute";
 
 import Dashboard from "../views/Dashboard/Dashboard";
 import TopMenu from "../components/Layout/TopMenu/TopMenu";
+import AppSideBar from "../components/Layout/AppSideBar/AppSideBar";
 
 const Login = () => <h2>Login</h2>;
 
@@ -47,25 +49,7 @@ class Full extends Component {
         {appReady === true ? (
           <div style={{ width: "100%", height: "100%" }}>
             <Sidebar.Pushable>
-              <Sidebar
-                as={Menu}
-                vertical
-                inverted
-                visible={this.props.appGlobalState.appMenuOpened}
-                style={{ backgroundColor: "#4b8ecb" }}
-                animation={"push"}
-              >
-                <div style={{ backgroundColor: "#1e5484", padding: "15px" }}>
-                  <Header as="h2" icon textAlign="center">
-                    <Icon name="users" circular style={{ color: "#FFF" }} />
-                    <Header.Content>User Name</Header.Content>
-                  </Header>
-                </div>
-                <Menu.Item name="Departments">
-                  Departments
-                  <Icon name="home" />
-                </Menu.Item>
-              </Sidebar>
+              <AppSideBar visible={this.props.appGlobalState.appMenuOpened} />
               <Sidebar.Pusher fluid as={Container}>
                 <TopMenu toggleVisibility={this.toggleVisibility} />
                 <div style={{ padding: "8px" }}>
@@ -91,22 +75,8 @@ class Full extends Component {
             </Sidebar.Pushable>
           </div>
         ) : (
-          <div>
-            <div className="field">
-              <label className="label">Label</label>
-              <div className="control">
-                <input className="input" type="text" placeholder="Text input" />
-              </div>
-              <p className="help">This is a help text</p>
-            </div>
-            <div className="control">
-              <div className="select">
-                <select>
-                  <option>Select dropdown</option>
-                  <option>With options</option>
-                </select>
-              </div>
-            </div>
+          <div style={{ width: "100%", height: "100%", margin: "50% auto" }}>
+            <Loader active inline="centered" />
           </div>
         )}
       </div>
