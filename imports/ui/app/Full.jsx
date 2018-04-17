@@ -54,6 +54,12 @@ class Full extends Component {
                 style={{ backgroundColor: "#4b8ecb" }}
                 animation={"push"}
               >
+                <div style={{ backgroundColor: "#1e5484", padding: "15px" }}>
+                  <Header as="h2" icon textAlign="center">
+                    <Icon name="users" circular style={{ color: "#FFF" }} />
+                    <Header.Content>User Name</Header.Content>
+                  </Header>
+                </div>
                 <Menu.Item name="Departments">
                   Departments
                   <Icon name="home" />

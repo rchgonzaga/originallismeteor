@@ -22,7 +22,8 @@
     "redux-thunk": "^2.2.0",
     "semantic-ui-css": "^2.3.1",
     "semantic-ui-icon": "^2.3.1",
-    "semantic-ui-react": "^0.79.1"
+    "semantic-ui-react": "^0.79.1",
+    "yup": "^0.24.1"
   },
   "version": "1.0.0",
   "description": "Simple school CRM",
