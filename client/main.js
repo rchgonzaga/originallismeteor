@@ -5,13 +5,8 @@ import React from "react";
 import { Meteor } from "meteor/meteor";
 import { render } from "react-dom";
 import "semantic-ui-css/semantic.min.css";
-import "./main.scss";
 
-import "flag-icon-css/css/flag-icon.min.css";
-import "font-awesome/css/font-awesome.min.css";
-import "simple-line-icons/css/simple-line-icons.css";
-import "./style.css";
-
+import App from "./App.jsx";
 import Layout from "../imports/ui/app/Layout";
 
 import documentPromise from "./documentPromise";
