@@ -23,9 +23,11 @@ import * as actions from "./redux/actions";
 import GuestRoute from "../components/Routes/GuestRoute";
 import UserRoute from "../components/Routes/UserRoute";
 
-import Dashboard from "../views/Dashboard/Dashboard";
 import TopMenu from "../components/Layout/TopMenu/TopMenu";
 import AppSideBar from "../components/Layout/AppSideBar/AppSideBar";
+
+import Dashboard from "../views/Dashboard/Dashboard";
+import Projects from "../views/Projects/Projects";
 
 const Login = () => <h2>Login</h2>;
 
@@ -51,7 +53,10 @@ class Full extends Component {
             <Sidebar.Pushable
               style={{ paddingRight: "0px", paddingLeft: "0px" }}
             >
-              <AppSideBar visible={this.props.appGlobalState.appMenuOpened} />
+              <AppSideBar
+                visible={this.props.appGlobalState.appMenuOpened}
+                style={{ paddingRight: "0px", paddingLeft: "0px" }}
+              />
               <Sidebar.Pusher
                 fluid
                 as={Container}
@@ -66,14 +71,18 @@ class Full extends Component {
                       name="Dashboard"
                       component={Dashboard}
                     />
-
+                    <GuestRoute
+                      exact
+                      path="/projects"
+                      name="Projects"
+                      component={Projects}
+                    />
                     <GuestRoute
                       exact
                       path="/login"
                       name="Login"
                       component={Login}
                     />
-
                     <Redirect exact from="/" to="/dashboard" />
                   </Switch>
                 </div>

@@ -19,7 +19,7 @@ class TopMenu extends Component {
   render() {
     return (
       <Menu fluid style={style}>
-        <Container fluid>
+        <Container fluid style={{ paddingLeft: "0px" }}>
           <Menu.Item as="a" header onClick={this.props.toggleVisibility}>
             <Icon name="sidebar" />
           </Menu.Item>

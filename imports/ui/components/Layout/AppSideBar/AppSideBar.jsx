@@ -20,7 +20,12 @@ class AppSideBar extends Component {
         vertical
         inverted
         visible={this.props.visible}
-        style={{ backgroundColor: "#4b8ecb" }}
+        style={{
+          backgroundColor: "#4dbd74",
+          paddingRight: "0px",
+          paddingLeft: "0px",
+          boxShadow: "#000 1px 0px 7px 0px"
+        }}
         animation={"push"}
       >
         <div style={style}>
@@ -38,6 +43,6 @@ class AppSideBar extends Component {
   }
 }
 
-const style = { backgroundColor: "#1e5484", padding: "15px" };
+const style = { backgroundColor: "#3c965b", padding: "15px" };
 
 export default AppSideBar;
