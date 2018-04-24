@@ -7,7 +7,11 @@ import { render } from "react-dom";
 import "semantic-ui-css/semantic.min.css";
 import "./main.scss";
 
-import App from "./App.jsx";
+import "flag-icon-css/css/flag-icon.min.css";
+import "font-awesome/css/font-awesome.min.css";
+import "simple-line-icons/css/simple-line-icons.css";
+import "./style.css";
+
 import Layout from "../imports/ui/app/Layout";
 
 import documentPromise from "./documentPromise";
