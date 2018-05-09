@@ -24,7 +24,7 @@ class AppSideBar extends Component {
           backgroundColor: "#4dbd74",
           paddingRight: "0px",
           paddingLeft: "0px",
-          boxShadow: "#000 1px 0px 7px 0px"
+          boxShadow: "#000 0px 0px 6px 0px"
         }}
         animation={"push"}
       >

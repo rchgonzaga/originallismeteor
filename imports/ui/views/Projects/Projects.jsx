@@ -376,7 +376,7 @@ class Projects extends Component {
               onGridRowsUpdated={this.handleGridRowsUpdated}
               toolbar={<Toolbar onAddRow={this.handleAddRow} />}
               enableRowSelect={true}
-              rowHeight={50}
+              rowHeight={25}
               minHeight={600}
               rowScrollTimeout={200}
             />
