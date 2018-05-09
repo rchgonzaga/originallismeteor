@@ -65,20 +65,17 @@ class Full extends Component {
                 <TopMenu toggleVisibility={this.toggleVisibility} />
                 <div style={{ padding: "8px" }}>
                   <Switch>
-                    <GuestRoute
-                      exact
+                    <GuestRoute exact
                       path="/dashboard"
                       name="Dashboard"
                       component={Dashboard}
                     />
-                    <GuestRoute
-                      exact
+                    <GuestRoute exact
                       path="/projects"
                       name="Projects"
                       component={Projects}
                     />
-                    <GuestRoute
-                      exact
+                    <GuestRoute exact
                       path="/login"
                       name="Login"
                       component={Login}
