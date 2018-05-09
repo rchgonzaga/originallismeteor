@@ -21,9 +21,31 @@ import {
 import ReactDataGrid from "react-data-grid";
 import { Editors, Toolbar, Formatters } from "react-data-grid-addons";
 import update from "immutability-helper";
+import {Doughnut} from 'react-chartjs-2';
 // import { connect } from "react-redux";
 // import { bindActionCreators } from "redux";
 // import * as actions from "./redux/actions";
+
+const data = {
+  labels: [
+    'Red',
+    'Green',
+    'Yellow'
+  ],
+  datasets: [{
+    data: [300, 50, 100],
+    backgroundColor: [
+    '#FF6384',
+    '#36A2EB',
+    '#FFCE56'
+    ],
+    hoverBackgroundColor: [
+    '#FF6384',
+    '#36A2EB',
+    '#FFCE56'
+    ]
+  }]
+};
 
 class Projects extends Component {
   constructor(props) {
@@ -390,7 +412,9 @@ class Projects extends Component {
           </Menu.Item>
         ),
         render: () => (
-          <Tab.Pane style={{ border: "none" }}>Tab 3 Content</Tab.Pane>
+          <Tab.Pane style={{ border: "none" }}>
+            <Doughnut data={data} />
+          </Tab.Pane>
         )
       },
       {
